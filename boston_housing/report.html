@@ -12865,9 +12865,9 @@ If the students are still young and not independent, normally the parents also d
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong>
-Yes
-Because the R^2 score is close to 1.0</p>
+<p><strong>Answer:</strong></p>
+<p>Because the greater the r^2 score is, the better the model is fitting.</p>
+<p>The R^2 score is close to 1.0, so the answer is yes.</p>
 
 </div>
 </div>
@@ -14022,16 +14022,20 @@ kVxP9+gAAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
+<p>When the training set is small, the trained model can memorize all of the training data.
+(the training score is close to 1.0)
+As the training set gets larger, the model won’t be able to fit all of the training data exactly.</p>
 <p>In the case that max_depth = 1 or 3.
 For training curve, when training points are added, the R^2 score decrease.
 For testing curve, when training points are added, the R^2 score increase.
 In this case, bias occurs(underfitting), so it means the model is not complex enough to predict the result.
 There is no use to add more traning points to the model to increase the prediciton.</p>
-<p>On the other hand, in the case that max_depth = 6 or 10
+<p>On the other hand, in the case that max_depth = 6 or 10.
 There is a gap between the line of training score and that of testing score.
 That is to say, the error due to variance(overfitting).
 It means the complexity of the model is high.
-In this case, more training points 'may' benefit the model.(but according to the graph it seems not useful)</p>
+In this case, more training points 'may' benefit the model.
+(but according to the graph it seems not useful, adding more data point does not change the testing score significantly)</p>
 
 </div>
 </div>
@@ -14527,10 +14531,11 @@ Hence, it suffers from high variance. (the complexity is too high or need more d
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong>
-Because the bias and variance are not so high when maximum depth is 4, I think the model best generalizes to unseen data.
-To be more specific, the validation R squared at the max_depth = 4 is maximized.
-The complexity is too high when max_depth &gt; 4, so the score decrease after that point.</p>
+<p><strong>Answer: </strong></p>
+<p>Because the bias and variance are not so high when maximum depth is 4, I think the model best generalizes to unseen data.</p>
+<p>To be more specific, the validation R squared at the max_depth = 4 is maximized.</p>
+<p>The complexity is too high when max_depth &gt; 4, so the score decrease after max_depth = 4. (the model is overfitted)</p>
+<p>The complexity is too low when max_depth &lt; 4, so the score increase before max_depth = 4. (the model is underfitted)</p>
 
 </div>
 </div>
@@ -14588,7 +14593,8 @@ The complexity is too high when max_depth &gt; 4, so the score decrease after th
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <p>If we do not implement cross-validation, the optimized model might be overfitting.</p>
-<p>After we do cross-validation, we can avoid this kind of situation happen.</p>
+<p>After we do cross-validation, we can avoid this kind of situation happen.
+To be more specific, the final accuracy is the average of the validation accuracy from round1 to round k, so we can avoid the accuracy we get is too high or too low from the true situation.</p>
 <p>K-fold cross-validation is one kind of cross-validation techniques.
 When we implement this method, the data will be sperated to k folds.
 This method will fit the data and predict the accuracy k times, each time using 1 validation set and the remaining k-1 training data.</p>
